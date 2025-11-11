@@ -830,6 +830,37 @@
             </div>
         </div>
 
+        
+        <!-- Restore main modal on close -->
+        <script>
+          const phdModal = document.getElementById('phdModal');
+          phdModal.addEventListener('hidden.bs.modal', function () {
+            const mainModal = new bootstrap.Modal(document.getElementById('portfolioModal1'));
+            mainModal.show();
+          });
+        
+          const mscModal = document.getElementById('mscModal');
+          mscModal.addEventListener('hidden.bs.modal', function () {
+            const mainModal = new bootstrap.Modal(document.getElementById('portfolioModal1'));
+            mainModal.show();
+          });
+        
+          const phdBtn = document.querySelector('[data-bs-target="#phdModal"]');
+          phdBtn.addEventListener('click', () => {
+            const mainModal = bootstrap.Modal.getInstance(document.querySelector('#portfolioModal1'));
+            mainModal.hide();
+          });
+        
+          const mscBtn = document.querySelector('[data-bs-target="#mscModal"]');
+          mscBtn.addEventListener('click', () => {
+            const mainModal = bootstrap.Modal.getInstance(document.querySelector('#portfolioModal1'));
+            mainModal.hide();
+          });
+        </script>
+        
+        <!-- Bootstrap core JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
         <!-- Initialize Map -->
         <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -863,36 +894,6 @@
           });
         });
         </script>
-
-        <!-- Restore main modal on close -->
-        <script>
-          const phdModal = document.getElementById('phdModal');
-          phdModal.addEventListener('hidden.bs.modal', function () {
-            const mainModal = new bootstrap.Modal(document.getElementById('portfolioModal1'));
-            mainModal.show();
-          });
-        
-          const mscModal = document.getElementById('mscModal');
-          mscModal.addEventListener('hidden.bs.modal', function () {
-            const mainModal = new bootstrap.Modal(document.getElementById('portfolioModal1'));
-            mainModal.show();
-          });
-        
-          const phdBtn = document.querySelector('[data-bs-target="#phdModal"]');
-          phdBtn.addEventListener('click', () => {
-            const mainModal = bootstrap.Modal.getInstance(document.querySelector('#portfolioModal1'));
-            mainModal.hide();
-          });
-        
-          const mscBtn = document.querySelector('[data-bs-target="#mscModal"]');
-          mscBtn.addEventListener('click', () => {
-            const mainModal = bootstrap.Modal.getInstance(document.querySelector('#portfolioModal1'));
-            mainModal.hide();
-          });
-        </script>
-        
-        <!-- Bootstrap core JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         
         <!-- Leaflet JS (after Bootstrap) -->
         <!-- <script
