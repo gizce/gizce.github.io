@@ -561,7 +561,7 @@
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/is.png" alt="..." style="max-width: 50%";/>
                                     
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">My Applied Information Systems projects integrating AI, machine learning, software engineering, and user experience design.</p>
+                                    <p class="mb-4">My Applied Information Systems projects integrating AI, machine learning, software engineering, and UX design.</p>
 
                                     <!-- ===== Semester Project @ Applied AI Lab ===== -->
                                   <div class="text-start mb-4">
@@ -650,7 +650,7 @@
                                     <!-- Portfolio Modal - Image-->
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/ts.png" alt="..." style="max-width: 50%";/>
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">To be updated...</p>
+                                    <p class="mb-4">Places I’ve visited around the world — click a marker to see photos!</p>
 
                                     <!-- Leaflet Map Container -->
                                     <div id="map" style="height: 500px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);"></div>
@@ -811,6 +811,40 @@
             </div>
         </div>
 
+        <!-- Initialize Map -->
+        <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const tripsModal = document.getElementById('portfolioModal4');
+          tripsModal.addEventListener('shown.bs.modal', function () {
+            if (!window.mapInitialized) {
+              const map = L.map('map').setView([20, 0], 2);
+        
+              L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+              }).addTo(map);
+        
+              const trips = [
+                { name: 'Switzerland', coords: [46.8182, 8.2275], img: 'assets/img/trips/switzerland.jpg' },
+                { name: 'Turkey', coords: [39.9334, 32.8597], img: 'assets/img/trips/turkey.jpg' },
+                { name: 'France', coords: [48.8566, 2.3522], img: 'assets/img/trips/france.jpg' },
+                { name: 'Italy', coords: [41.8719, 12.5674], img: 'assets/img/trips/italy.jpg' }
+              ];
+        
+              trips.forEach(t => {
+                L.marker(t.coords)
+                  .addTo(map)
+                  .bindPopup(`
+                    <strong>${t.name}</strong><br>
+                    <img src="${t.img}" alt="${t.name}" style="width:150px; border-radius:8px; margin-top:5px;">
+                  `);
+              });
+        
+              window.mapInitialized = true;
+            }
+          });
+        });
+        </script>
+
         <!-- Restore main modal on close -->
         <script>
           const phdModal = document.getElementById('phdModal');
@@ -851,39 +885,7 @@
         <!-- Core theme JS -->
         <script src="js/scripts.js"></script>
         
-        <!-- Initialize Map -->
-        <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          const tripsModal = document.getElementById('portfolioModal4');
-          tripsModal.addEventListener('shown.bs.modal', function () {
-            if (!window.mapInitialized) {
-              const map = L.map('map').setView([20, 0], 2);
-        
-              L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; OpenStreetMap contributors'
-              }).addTo(map);
-        
-              const trips = [
-                { name: 'Switzerland', coords: [46.8182, 8.2275], img: 'assets/img/trips/switzerland.jpg' },
-                { name: 'Turkey', coords: [39.9334, 32.8597], img: 'assets/img/trips/turkey.jpg' },
-                { name: 'France', coords: [48.8566, 2.3522], img: 'assets/img/trips/france.jpg' },
-                { name: 'Italy', coords: [41.8719, 12.5674], img: 'assets/img/trips/italy.jpg' }
-              ];
-        
-              trips.forEach(t => {
-                L.marker(t.coords)
-                  .addTo(map)
-                  .bindPopup(`
-                    <strong>${t.name}</strong><br>
-                    <img src="${t.img}" alt="${t.name}" style="width:150px; border-radius:8px; margin-top:5px;">
-                  `);
-              });
-        
-              window.mapInitialized = true;
-            }
-          });
-        });
-        </script>
+
 
         <!-- Bootstrap core JS-->
         <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> -->
