@@ -857,21 +857,17 @@
           tripsModal.addEventListener('shown.bs.modal', function () {
             if (!window.mapInitialized) {
               const map = L.map('map').setView([20, 0], 2);
-        
+
+              // Default tile theme
               // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
               //   attribution: '&copy; OpenStreetMap contributors'
               // }).addTo(map);
 
-              // // Light tile theme
-              // L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-              //   attribution: '&copy; CartoDB & OpenStreetMap contributors'
-              // }).addTo(map);  
-
+              // Voyager tile theme 
               L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
                   attribution: '&copy; CartoDB & OpenStreetMap contributors'
               }).addTo(map);
   
-
        
               const trips = [
                 { name: 'Switzerland', coords: [46.8182, 8.2275], img: 'assets/img/trips/switzerland.jpg' },
@@ -881,41 +877,22 @@
               ];
 
               // Add markers + hover popups
-              // trips.forEach(t => {
-              //   const marker = L.marker(t.coords)
-              //     .addTo(map)
-              //     .bindPopup(`
-              //       <strong>${t.name}</strong><br>
-              //       <img src="${t.img}" alt="${t.name}" style="width:150px; border-radius:8px; margin-top:5px;">
-              //     `);
-        
-              //   marker.on('mouseover', function () {
-              //     this.openPopup();
-              //   });
-        
-              //   marker.on('mouseout', function () {
-              //     this.closePopup();
-              //   });
-              // });  
-        
               trips.forEach(t => {
-                L.marker(t.coords)
+                const marker = L.marker(t.coords)
                   .addTo(map)
                   .bindPopup(`
                     <strong>${t.name}</strong><br>
                     <img src="${t.img}" alt="${t.name}" style="width:150px; border-radius:8px; margin-top:5px;">
                   `);
-
-              // ADD HOVER POPUP BEHAVIOR HERE
+        
                 marker.on('mouseover', function () {
                   this.openPopup();
                 });
+        
                 marker.on('mouseout', function () {
                   this.closePopup();
                 });
-              });
-
-            
+              });             
         
               window.mapInitialized = true;
             }
