@@ -876,24 +876,44 @@
                 { name: 'France', coords: [48.8566, 2.3522], img: 'assets/img/trips/france.jpg' },
                 { name: 'Italy', coords: [41.8719, 12.5674], img: 'assets/img/trips/italy.jpg' }
               ];
-        
+
+              // Add markers + hover popups
               trips.forEach(t => {
-                L.marker(t.coords)
+                const marker = L.marker(t.coords)
                   .addTo(map)
                   .bindPopup(`
                     <strong>${t.name}</strong><br>
                     <img src="${t.img}" alt="${t.name}" style="width:150px; border-radius:8px; margin-top:5px;">
                   `);
-              });
-
-              // ADD HOVER POPUP BEHAVIOR HERE
+        
                 marker.on('mouseover', function () {
                   this.openPopup();
                 });
+        
                 marker.on('mouseout', function () {
                   this.closePopup();
                 });
               });  
+        
+              // trips.forEach(t => {
+              //   L.marker(t.coords)
+              //     .addTo(map)
+              //     .bindPopup(`
+              //       <strong>${t.name}</strong><br>
+              //       <img src="${t.img}" alt="${t.name}" style="width:150px; border-radius:8px; margin-top:5px;">
+              //     `);
+              // });
+
+              // ADD HOVER POPUP BEHAVIOR HERE
+              //   marker.on('mouseover', function () {
+              //     this.openPopup();
+              //   });
+              //   marker.on('mouseout', function () {
+              //     this.closePopup();
+              //   });
+              // });
+
+            
         
               window.mapInitialized = true;
             }
