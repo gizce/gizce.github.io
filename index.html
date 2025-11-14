@@ -24,29 +24,71 @@
         <script
           src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js">
         </script>
-        <!-- Custom inline styles for buttons -->
-        <style>
-          .btn-social:hover {
-            background-color: white !important;   /* white circle */
-            color: #1a1a1a !important;            /* dark icon */
-            border-color: #1a1a1a !important;     /* keep border dark */
-          }
-        </style>
         <!-- Custom inline styles -->
-        <style>       
-          /* Floating animation */
-          @keyframes floaty {
-            0%,100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-          }     
+        <style>
+            /* Social icon hover */
+            .btn-social:hover {
+                background-color: white !important;
+                color: #1a1a1a !important;
+                border-color: #1a1a1a !important;
+            }
+
+            /* Floating animation */
+            @keyframes floaty {
+                0%,100% { transform: translateY(0); }
+                50%     { transform: translateY(-6px); }
+            }
+
+            /* -------------------------------------- */
+            /* 🔥 Bootstrap-3 style hamburger animation */
+            /* -------------------------------------- */
+
+            .navbar-toggler {
+                border: none;
+                padding: 0;
+            }
+
+            .toggler-icon {
+                width: 28px;
+                height: 3px;
+                background-color: white;
+                display: block;
+                margin: 5px 0;
+                transition: all 0.3s ease-in-out;
+            }
+
+            /* OPEN state (menu expanded) */
+            .navbar-toggler:not(.collapsed) .top-bar {
+                transform: rotate(45deg) translate(6px, 6px);
+            }
+            .navbar-toggler:not(.collapsed) .middle-bar {
+                opacity: 0;
+            }
+            .navbar-toggler:not(.collapsed) .bottom-bar {
+                transform: rotate(-45deg) translate(6px, -6px);
+            }
+
+            /* Logo hover animation */
+            .nav-logo {
+                transition: transform 0.4s ease;
+            }
+            .nav-logo:hover {
+                transform: rotate(360deg) scale(1.1);
+            }
+
+            /* Smooth collapse (Bootstrap 3 feel) */
+            .navbar-collapse.collapse {
+                transition: height 0.25s ease;
+            }
         </style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <!-- <a class="navbar-brand" href="#page-top">Gizay</a> -->
 
+                <!-- Brand -->
+                <!-- <a class="navbar-brand" href="#page-top">Gizay</a> -->
                 <a class="navbar-brand d-flex align-items-center" href="#page-top">
                   <img src="assets/invpink.svg" alt="..."
                        style="height:38px; margin-right:10px; transition:transform .4s ease;"
@@ -55,10 +97,20 @@
                   <span>Gizay</span>
                 </a>
 
-                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <!-- Menu -->
-                    <i class="fas fa-bars"></i>
+                <!-- NEW Bootstrap-3-style hamburger -->
+                <button class="navbar-toggler collapsed" type="button" 
+                        data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        
+                    <span class="toggler-icon top-bar"></span>
+                    <span class="toggler-icon middle-bar"></span>
+                    <span class="toggler-icon bottom-bar"></span>
                 </button>
+
+                <!-- <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> -->
+                    <!-- Menu -->
+                    <!-- <i class="fas fa-bars"></i> -->
+                <!-- </button> -->
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#experience">XP</a></li>
