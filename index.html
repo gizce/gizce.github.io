@@ -871,14 +871,115 @@
               }).addTo(map);
   
               // Add images
-              const trips = [
-                { name: 'Switzerland', coords: [46.8182, 8.2275], img: 'assets/img/trips/switzerland.jpg' },
-                { name: 'Japan', coords: [35.0116, 135.7681], img: 'assets/img/trips/japan.jpg' },
-                { name: 'Lisbon, Portugal', coords: [38.7169, -9.1399], img: 'assets/img/trips/lisbon.jpg' },
-                { name: 'Turkey', coords: [39.9334, 32.8597], img: 'assets/img/trips/turkey.jpg' },
-                { name: 'France', coords: [48.8566, 2.3522], img: 'assets/img/trips/france.jpg' },
-                { name: 'Italy', coords: [41.8719, 12.5674], img: 'assets/img/trips/italy.jpg' }
-              ];
+              // const trips = [
+              //   { name: 'Switzerland', coords: [46.8182, 8.2275], img: 'assets/img/trips/switzerland.jpg' },
+              //   { name: 'Japan', coords: [35.0116, 135.7681], img: 'assets/img/trips/japan.jpg' },
+              //   { name: 'Lisbon, Portugal', coords: [38.7169, -9.1399], img: 'assets/img/trips/lisbon.jpg' },
+              //   { name: 'Turkey', coords: [39.9334, 32.8597], img: 'assets/img/trips/turkey.jpg' },
+              //   { name: 'France', coords: [48.8566, 2.3522], img: 'assets/img/trips/france.jpg' },
+              //   { name: 'Italy', coords: [41.8719, 12.5674], img: 'assets/img/trips/italy.jpg' }
+              // ];
+
+              // Add visited countries + cities + one image per country
+            const trips = [
+              { 
+                name: 'Switzerland',
+                coords: [46.8182, 8.2275],
+                cities: 'Geneva, Lausanne, Zurich, Basel, Meyrin, Bern, Lauterbrunnen, Montreux, Vevey',
+                img: 'assets/img/trips/switzerland.jpg'
+              },
+              { 
+                name: 'Italy',
+                coords: [41.8719, 12.5674],
+                cities: 'Rome, Napoli, Pisa, Florence, Milan, Venice, Trieste',
+                img: 'assets/img/trips/italy.jpg'
+              },
+              { 
+                name: 'France',
+                coords: [48.8566, 2.3522],
+                cities: 'Paris, Lyon, Bordeaux, Nice, Chambéry',
+                img: 'assets/img/trips/france.jpg'
+              },
+              { 
+                name: 'Spain',
+                coords: [40.4168, -3.7038],
+                cities: 'Barcelona, Mallorca',
+                img: 'assets/img/trips/spain.jpg'
+              },
+              { 
+                name: 'Portugal',
+                coords: [38.7169, -9.1399],
+                cities: 'Lisbon',
+                img: 'assets/img/trips/portugal.jpg'
+              },
+              { 
+                name: 'Belgium',
+                coords: [50.8503, 4.3517],
+                cities: 'Brussels, Bruges',
+                img: 'assets/img/trips/belgium.jpg'
+              },
+              { 
+                name: 'Germany',
+                coords: [51.1657, 10.4515],
+                cities: 'Köln, Frankfurt, Munich, Berlin, Hamburg, Mannheim',
+                img: 'assets/img/trips/germany.jpg'
+              },
+              { 
+                name: 'Netherlands',
+                coords: [52.1326, 5.2913],
+                cities: 'Maastricht, Amsterdam, Hague, Nijmegen',
+                img: 'assets/img/trips/netherlands.jpg'
+              },
+              { 
+                name: 'Iceland',
+                coords: [64.9631, -19.0208],
+                cities: 'Reykjavik, Kerið, Strokkur, Laugarvatn, Þingvellir',
+                img: 'assets/img/trips/iceland.jpg'
+              },
+              { 
+                name: 'Sweden',
+                coords: [59.3293, 18.0686],
+                cities: 'Stockholm',
+                img: 'assets/img/trips/sweden.jpg'
+              },
+              { 
+                name: 'Finland',
+                coords: [60.1699, 24.9384],
+                cities: 'Helsinki, Turku, Åland',
+                img: 'assets/img/trips/finland.jpg'
+              },
+              { 
+                name: 'Estonia',
+                coords: [59.4370, 24.7536],
+                cities: 'Tallinn',
+                img: 'assets/img/trips/estonia.jpg'
+              },
+              { 
+                name: 'Bulgaria',
+                coords: [43.2141, 27.9147],
+                cities: 'Varna',
+                img: 'assets/img/trips/bulgaria.jpg'
+              },
+              { 
+                name: 'United States',
+                coords: [40.7128, -74.0060],
+                cities: 'New York, Miami, Florida',
+                img: 'assets/img/trips/usa.jpg'
+              },
+              { 
+                name: 'South Korea',
+                coords: [37.5665, 126.9780],
+                cities: 'Seoul, Jeju',
+                img: 'assets/img/trips/korea.jpg'
+              },
+              { 
+                name: 'Japan',
+                coords: [35.0116, 135.7681],
+                cities: 'Kyoto, Hiroshima, Nara, Osaka, Kobe',
+                img: 'assets/img/trips/japan.jpg'
+              }
+            ];
+              
 
               // Add markers + hover popups
               trips.forEach(t => {
