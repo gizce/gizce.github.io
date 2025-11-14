@@ -1168,9 +1168,9 @@
         <button id="scrollTopBtn" title="Go to top">
           <!-- <i class="fas fa-arrow-up"></i> -->
           <!-- <i class="fa-solid fa-circle-up"></i> -->
-          <i class="fa-solid fa-chevron-up"></i>
-          <!-- <i class="fa-solid fa-circle-chevron-up"></i>
-          <i class="fa-solid fa-angle-up"></i> -->
+          <!-- <i class="fa-solid fa-chevron-up"></i> -->
+          <i class="fa-solid fa-circle-chevron-up"></i>
+
         </button>
                       
         <!-- Scroll to top -->
@@ -1187,6 +1187,21 @@
         
           scrollBtn.addEventListener("click", () => {
             window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+        </script>
+
+        <!-- Scroll-to-top hide/show on modal open/close -->
+        <script>
+          const scrollBtn = document.getElementById("scrollTopBtn");
+        
+          document.addEventListener('show.bs.modal', function () {
+            scrollBtn.style.display = "none";
+          });
+        
+          document.addEventListener('hide.bs.modal', function () {
+            if (window.scrollY > 200) {
+              scrollBtn.style.display = "block";
+            }
           });
         </script>
 
