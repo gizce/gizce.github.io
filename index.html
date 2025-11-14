@@ -81,6 +81,31 @@
                 transition: height 0.25s ease;
             }
         </style>
+        <style>
+          /* Scroll to Top Button */
+          #scrollTopBtn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 9999;
+            background-color: #1abc9c;
+            border: none;
+            color: white;
+            padding: 12px 14px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+            display: none;
+            transition: all 0.3s ease;
+          }
+        
+          #scrollTopBtn:hover {
+            background-color: #16a085;
+            transform: scale(1.1);
+          }
+        </style>
+
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -1090,9 +1115,32 @@
         });
         </script>
                 
+        
+        <!-- Scroll to top -->
+        <script>
+          const scrollBtn = document.getElementById("scrollTopBtn");
+        
+          window.addEventListener("scroll", () => {
+            if (window.scrollY > 200) {
+              scrollBtn.style.display = "block";
+            } else {
+              scrollBtn.style.display = "none";
+            }
+          });
+        
+          scrollBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+        </script>
+
         <!-- Core theme JS -->
         <script src="js/scripts.js"></script>
-        
+
+        <!-- Scroll to Top Button -->
+        <button id="scrollTopBtn" title="Go to top">
+          <i class="fas fa-arrow-up"></i>
+        </button>
+
         <!-- Bootstrap core JS-->
         <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> -->
         <!-- Core theme JS-->
