@@ -98,6 +98,7 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.25);
             display: none;
             transition: all 0.3s ease;
+            -webkit-tap-highlight-color: transparent; /* prevents mobile highlight */  
           }
         
           #scrollTopBtn:hover {
@@ -106,13 +107,13 @@
           }
 
           /* Fix mobile tap state (iOS/Android sticky active/focus) */
-          #scrollTopBtn:active,
-          #scrollTopBtn:focus {
-            background-color: #e76f51 !important; /* original coral */
-            color: white !important;
-            outline: none !important;
-            transform: none !important; /* prevents stuck zoom on tap */
-          }  
+          /* #scrollTopBtn:active, */
+          /* #scrollTopBtn:focus { */
+            /* background-color: #e76f51 !important; /* original coral */ 
+            /* color: white !important; */
+            /* outline: none !important; */
+            /* transform: none !important; /* prevents stuck zoom on tap */ 
+          /* }   */
         </style>
 
     </head>
